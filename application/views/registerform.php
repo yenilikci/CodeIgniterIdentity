@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="col s6 offset-s3">
 
-			<form action="" method="post">
+			<form action="<?php echo base_url('member/registration') ?>" method="post">
 
 			
 			<div class="card-panel white">

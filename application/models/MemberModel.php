@@ -16,15 +16,9 @@ class MemberModel extends CI_Model{
 	public function update($where = array(), $data = array()){
 		$update = $this->db->where($where)->update("member",$data);
 		return $update;
-	}
+	}	
 
 }
-
-
-
-
-
-
 
 
 ?>
