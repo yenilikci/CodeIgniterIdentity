@@ -33,6 +33,11 @@
 					</div>
 
 					<div class="input-field">
+						<input type="text" name="phone">
+						<label>Telefon</label>
+					</div>
+
+					<div class="input-field">
 						<select name="gender">
 							<option value="" disabled selected>Ben bir...</option>
 							<option value="k">Kadınım</option>
