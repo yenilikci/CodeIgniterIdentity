@@ -29,7 +29,9 @@ class Member extends CI_Controller{
 
 		if($this->form_validation->run() == FALSE)
 		{
-			echo validation_errors();
+
+			$viewData["error"] = validation_errors();
+			$this->load->view("registerform",$viewData);
 		}
 		else
 		{

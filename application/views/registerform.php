@@ -14,6 +14,24 @@
 
 <body style="background-color: #1b1c1d;">
 
+<?php
+	if(isset($error))
+	{?>
+		<div class="container">
+		<div class="row">
+		<div class="col s6 offset-s3">
+			<div class="card-panel red white-text center-align pulse">
+				<?=$error?>
+			</div>
+			</div>	</div>
+		</div>
+		<?php
+	}	
+?>
+
+
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col s6 offset-s3">
