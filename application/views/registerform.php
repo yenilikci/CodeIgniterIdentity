@@ -14,18 +14,19 @@
 
 <body style="background-color: #1b1c1d;">
 
-<?php
+	<?php
 	if(isset($error))
 	{?>
-		<div class="container">
+	<div class="container">
 		<div class="row">
-		<div class="col s6 offset-s3">
-			<div class="card-panel red white-text center-align pulse">
-				<?=$error?>
+			<div class="col s6 offset-s3">
+				<div class="card-panel red white-text center-align pulse">
+					<?=$error?>
+				</div>
 			</div>
-			</div>	</div>
 		</div>
-		<?php
+	</div>
+	<?php
 	}	
 ?>
 
@@ -36,54 +37,54 @@
 		<div class="row">
 			<div class="col s6 offset-s3">
 
-			<form action="<?php echo base_url('member/registration') ?>" method="post">
-
-			
-			<div class="card-panel white">
-					<div class="input-field">
-						<input type="text" name="fullname">
-						<label>Ad Soyad</label>
-					</div>
-
-					<div class="input-field">
-						<input type="email" name="email">
-						<label>E-posta Adresi</label>
-					</div>
-
-					<div class="input-field">
-						<input type="text" name="phone">
-						<label>Telefon</label>
-					</div>
-
-					<div class="input-field">
-						<select name="gender">
-							<option value="" disabled selected>Ben bir...</option>
-							<option value="k">Kadınım</option>
-							<option value="e">Erkeğim</option>
-						</select>
-						<label>Cinsiyet</label>
-					</div>
-
-					<div class="input-field">
-						<input type="password" name="password">
-						<label>Şifre</label>
-					</div>
-
-					<div class="input-field">
-						<input type="password" name="repassword">
-						<label>Tekrar Şifre</label>
-					</div>
-
-					<button class="btn green waves-effect waves-light" type="submit">Üye ol
-						<i class="material-icons right">add</i>
-					</button>
-
-					<a href="" class="btn red waves-effect">Vazgeç
-						<i class="material-icons left">close</i>
-					</a>
+				<form action="<?php echo base_url('member/registration') ?>" method="post">
 
 
-			</form>
+					<div class="card-panel white">
+						<div class="input-field">
+							<input type="text" name="fullname">
+							<label>Ad Soyad</label>
+						</div>
+
+						<div class="input-field">
+							<input type="email" name="email">
+							<label>E-posta Adresi</label>
+						</div>
+
+						<div class="input-field">
+							<input type="text" name="phone">
+							<label>Telefon</label>
+						</div>
+
+						<div class="input-field">
+							<select name="gender">
+								<option value="" disabled selected>Ben bir...</option>
+								<option value="k">Kadınım</option>
+								<option value="e">Erkeğim</option>
+							</select>
+							<label>Cinsiyet</label>
+						</div>
+
+						<div class="input-field">
+							<input type="password" name="password">
+							<label>Şifre</label>
+						</div>
+
+						<div class="input-field">
+							<input type="password" name="repassword">
+							<label>Tekrar Şifre</label>
+						</div>
+
+						<button class="btn green waves-effect waves-light" type="submit">Üye ol
+							<i class="material-icons right">add</i>
+						</button>
+
+						<a href="" class="btn red waves-effect">Vazgeç
+							<i class="material-icons left">close</i>
+						</a>
+
+
+				</form>
 
 			</div>
 		</div>

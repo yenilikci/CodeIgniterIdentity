@@ -35,7 +35,28 @@ class Member extends CI_Controller{
 		}
 		else
 		{
+			$activation_code = md5(uniqid());
 			//database kayıt
+			$this->load->model("MemberModel");
+			$data = array(
+				"email" => $this->input->post("email"),
+				"full_name" => $this->input->post("fullname"),
+				"gender" => $this->input->post("gender"),
+				"phone" => $this->input->post("phone"),
+				"password" => md5($this->input->post("password")),
+				"createdAt" => date("Y-m-d H:i:s"),
+				"activationCode" => $activation_code
+			);
+
+			$insert = $this->MemberModel->insert($data);
+			if($insert){
+				//kullanıcıya aktivasyon işlemi için email 
+				echo "başarılıdır";
+			}else
+			{
+				//error page
+				echo "başarısızdır";
+			}
 		}
 
 	}
