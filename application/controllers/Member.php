@@ -50,8 +50,36 @@ class Member extends CI_Controller{
 
 			$insert = $this->MemberModel->insert($data);
 			if($insert){
+				$config = array(
+					"protocol" => "smtp",
+					"smtp_host" => "ssl://smtp.gmail.com",
+					"smtp_port" => "465",
+					"smtp_user" => "mailadresimiz",
+					"smtp_pass" => "sifremiz",
+					"starttls" => true,
+					"charset" => "utf-8",
+					"mailtype" => "html",
+					"wordwrap" => true,
+					"newline" => "\r\n",
+				);
+
+				$link = base_url("member/activation/$activation_code");
+
+				$message = "Merhabalar, {$this->input->post("full_name")}, <br> üyeliğinizin aktifleşmesi için sadece bir adım kaldı
+				Üyeliğinizin aktifleştirmek için lütfen <a href='$link'>tıklayınız</a>";
+
 				//kullanıcıya aktivasyon işlemi için email 
-				echo "başarılıdır";
+				$this->load->library("email",$config);
+				$this->email->from("mailadresimiz","melih");
+				$this->email->to($this->input->post("email"));
+				$this->email->subject("Üyelik Aktivasyonu");
+				$this->email->message($message);
+				$send = $this->email->send();
+				if($send){
+					echo "başarılıdır";
+				}else{
+					echo $this->email->print_debugger();
+				}
 			}else
 			{
 				//error page
