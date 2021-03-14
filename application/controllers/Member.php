@@ -91,9 +91,35 @@ class Member extends CI_Controller{
 
 	}
 
-	public function activation()
+	public function activation($activationCode)
 	{
+		//activationCode ile kaydı bul
+		//bu kaydın isActive = 1
+		//activationCode = ""
+		//success page... error page...
+		$this->load->model("MemberModel");
+		$where = array(
+			"activationCode" => $activationCode,
+		);
+		$row = $this->MemberModel->get($where);
+		if($row)
+		{
+			$data = array(
+				"isActive" => 1,
+				"activationCode" => ""
+			);
+			$update = $this->MemberModel->update($where,$data);
+			if($update)
+			{
+				echo "Success Page";	
+			}else{
+				echo "Error Page";
+			}
+		}else{
+			echo "error page";
+		}
 		
+
 	}
 
 }
