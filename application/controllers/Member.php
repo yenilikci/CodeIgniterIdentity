@@ -76,14 +76,16 @@ class Member extends CI_Controller{
 				$this->email->message($message);
 				$send = $this->email->send();
 				if($send){
-					echo "başarılıdır";
+					$this->load->view("thanks");
 				}else{
-					echo $this->email->print_debugger();
+					$viewData["error"] = "Üyelik sırasında bir problem oluştu lütfen tekrar deneyiniz";
+					$this->load->view("registerform",$viewData);
 				}
 			}else
 			{
 				//error page
-				echo "başarısızdır";
+				$viewData["error"] = "Üyelik sırasında bir problem oluştu lütfen tekrar deneyiniz";
+				$this->load->view("registerform",$viewData);
 			}
 		}
 
