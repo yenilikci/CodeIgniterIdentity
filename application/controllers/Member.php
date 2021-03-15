@@ -111,12 +111,12 @@ class Member extends CI_Controller{
 			$update = $this->MemberModel->update($where,$data);
 			if($update)
 			{
-				echo "Success Page";	
+				$this->load->view("success");
 			}else{
-				echo "Error Page";
+				$this->load->view("error");
 			}
 		}else{
-			echo "error page";
+			$this->load->view("error");
 		}
 		
 
