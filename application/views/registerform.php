@@ -41,47 +41,66 @@
 
 
 					<div class="card-panel white">
-						<div class="input-field">
-							<input type="text" name="fullname">
-							<label>Ad Soyad</label>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="text" name="fullname">
+								<label>Ad Soyad</label>
+							</div>
 						</div>
 
-						<div class="input-field">
+
+					<div class="row">
+						<div class="input-field col s12">
 							<input type="email" name="email">
 							<label>E-posta Adresi</label>
 						</div>
+					</div>
 
-						<div class="input-field">
-							<input type="text" name="phone">
-							<label>Telefon</label>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="text" name="phone">
+								<label>Telefon</label>
+							</div>
 						</div>
 
-						<div class="input-field">
-							<select name="gender">
-								<option value="" disabled selected>Ben bir...</option>
-								<option value="k">Kadınım</option>
-								<option value="e">Erkeğim</option>
-							</select>
-							<label>Cinsiyet</label>
+						<div class="row">
+							<div class="input-field col s12">
+								<select name="gender">
+									<option value="" disabled selected>Ben bir...</option>
+									<option value="k">Kadınım</option>
+									<option value="e">Erkeğim</option>
+								</select>
+								<label>Cinsiyet</label>
+							</div>
 						</div>
 
-						<div class="input-field">
-							<input type="password" name="password">
-							<label>Şifre</label>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="password" name="password">
+								<label>Şifre</label>
+							</div>
 						</div>
 
-						<div class="input-field">
-							<input type="password" name="repassword">
-							<label>Tekrar Şifre</label>
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="password" name="repassword">
+								<label>Tekrar Şifre</label>
+							</div>
 						</div>
 
-						<button class="btn green waves-effect waves-light" type="submit">Üye ol
-							<i class="material-icons right">add</i>
-						</button>
+						<div class="row center-align">
+							<button class="btn green waves-effect waves-light" type="submit">Üye ol
+								<i class="material-icons right">add</i>
+							</button>
 
-						<a href="" class="btn red waves-effect">Vazgeç
-							<i class="material-icons left">close</i>
-						</a>
+							<a href="" class="btn red waves-effect">Vazgeç
+								<i class="material-icons left">close</i>
+							</a>
+						</div>
+
+						<div class="row center-align">
+							zaten üyeyeyim <a href="">giriş yap</a>
+						</div>
 
 
 				</form>
