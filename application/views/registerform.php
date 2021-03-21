@@ -99,7 +99,7 @@
 						</div>
 
 						<div class="row center-align">
-							zaten üyeyeyim <a href="">giriş yap</a>
+							zaten üyeyeyim <a href="<?php echo base_url("member/signinform");?>">giriş yap</a>
 						</div>
 
 

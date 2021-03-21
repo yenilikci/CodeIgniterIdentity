@@ -122,4 +122,10 @@ class Member extends CI_Controller{
 
 	}
 
+	//Üyelik işlemleri 2
+	public function signinform()
+	{
+		$this->load->view("signin");
+	}
+
 }
