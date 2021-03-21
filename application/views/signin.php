@@ -72,7 +72,7 @@ if(isset($error))
 							<i class="material-icons right">send</i>
 						</button>
 
-						<a href="" class="btn-flat waves-effect">ŞİFREMİ UNUTTUM
+						<a href="#modal1" class="btn-flat waves-effect modal-trigger">ŞİFREMİ UNUTTUM
 							<i class="material-icons left">help</i>
 						</a>
 					</div>
@@ -87,7 +87,27 @@ if(isset($error))
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Şifremi unuttum</h4>
+		<p>Şifrenizi hatırlatmak için yeni bir şifre oluşturup göndereceğiz.
+		Bunun için sistemde kayıtlı olan e-posta adresinizi giriniz.</p>
+
+		<form action="<?php echo base_url();?>" method="post">
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="email" id="email" name="email" placeholder="Sistemde kayıtlı e-posta adresinizi giriniz">
+					<label for="email">E-posta Adresi</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="modal-close waves-effect waves-green btn green"><i class="material-icons left">send</i>Gönder</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery -3.5.1.slim.min.js"></script>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="<?=base_url("assets");?>/js/materialize.min.js"></script>
 <script>
@@ -101,6 +121,8 @@ if(isset($error))
 	$(document).ready(function () {
 		$('select').formSelect();
 	});
+
+	$(".modal").modal();
 
 </script>
 </body>
