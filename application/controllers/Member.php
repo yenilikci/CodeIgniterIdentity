@@ -181,4 +181,10 @@ class Member extends CI_Controller{
 		}
 	}
 
+	public function logout(){
+		$this->session->unset_userdata("member");
+		redirect(base_url("member/signinform"));
+	}
+
+
 }

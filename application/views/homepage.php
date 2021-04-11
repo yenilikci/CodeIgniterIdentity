@@ -17,7 +17,7 @@
 <nav>
 	<div class="nav-wrapper">
 		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="#">Çıkış Yap <i class="material-icons left">exit_to_app</i></a></li>
+			<li><a href="<?php echo base_url("member/logout");?>">Çıkış Yap <i class="material-icons left">exit_to_app</i></a></li>
 		</ul>
 		<ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 10px;">
 			<li>Melih Çelik</li>
