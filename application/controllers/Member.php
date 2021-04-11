@@ -158,11 +158,9 @@ class Member extends CI_Controller{
 				"password" => md5($this->input->post("password"))
 			);
 			$member = $this->MemberModel->get($where);
-
 			if ($member)
 			{
-				//homepage
-				print_r($member);
+				redirect(base_url("homepage"));
 			}else{
 				//hata mesajı göster
 				$viewData["error"] = "Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı!";
