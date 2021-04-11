@@ -129,45 +129,56 @@ class Member extends CI_Controller{
 	//Üyelik işlemleri 2
 	public function signinform()
 	{
-		$this->load->view("signin");
+		$member = $this->session->userdata("member");
+		if ($member)
+		{
+			redirect(base_url("homepage"));
+		}else{
+			$this->load->view("signin");
+		}
 	}
 
 	public function signin(){
-		//form validation
-		$this->load->library("form_validation");
-		$this->form_validation->set_rules("email","E-posta","required|trim|valid_email");
-		$this->form_validation->set_rules("password","Şifre","required|trim|min_length[6]");
 
-		$error_messages = array(
-			"required" => "<strong>%s</strong> isimli alanı doldurmak zorundasınız",
-			"valid_email" => "lütfen geçerli bir e-posta adresi giriniz",
-			"min_length" => "Lütfen şifrenizi eksiksiz olarak giriniz"
-		);
-
-		$this->form_validation->set_message($error_messages);
-
-		if ($this->form_validation->run() == FALSE)
+		$member = $this->session->userdata("member");
+		if ($member)
 		{
-			//hata mesajı göster
-			$viewData["error"] = validation_errors();
-			$this->load->view("signin",$viewData);
-		}else{
-			//db kontrolü
-			$where = array(
-				"email" => $this->input->post("email"),
-				"password" => md5($this->input->post("password"))
+			redirect(base_url("homepage"));
+		}else {
+			//form validation
+			$this->load->library("form_validation");
+			$this->form_validation->set_rules("email", "E-posta", "required|trim|valid_email");
+			$this->form_validation->set_rules("password", "Şifre", "required|trim|min_length[6]");
+
+			$error_messages = array(
+				"required" => "<strong>%s</strong> isimli alanı doldurmak zorundasınız",
+				"valid_email" => "lütfen geçerli bir e-posta adresi giriniz",
+				"min_length" => "Lütfen şifrenizi eksiksiz olarak giriniz"
 			);
-			$member = $this->MemberModel->get($where);
-			if ($member)
-			{
-				redirect(base_url("homepage"));
-			}else{
+
+			$this->form_validation->set_message($error_messages);
+
+			if ($this->form_validation->run() == FALSE) {
 				//hata mesajı göster
-				$viewData["error"] = "Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı!";
-				$this->load->view("signin",$viewData);
+				$viewData["error"] = validation_errors();
+				$this->load->view("signin", $viewData);
+			} else {
+				//db kontrolü
+				$where = array(
+					"email" => $this->input->post("email"),
+					"password" => md5($this->input->post("password"))
+				);
+				$member = $this->MemberModel->get($where);
+				if ($member) {
+					$this->session->set_userdata("member", $member);
+					redirect(base_url("homepage"));
+				} else {
+					//hata mesajı göster
+					$viewData["error"] = "Girmiş olduğunuz bilgilere ait bir kullanıcı bulunamadı!";
+					$this->load->view("signin", $viewData);
+				}
 			}
 		}
-
 	}
 
 }

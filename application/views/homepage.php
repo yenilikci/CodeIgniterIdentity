@@ -26,7 +26,7 @@
 </nav>
 
 <div class="container section">
-	<h5>Hoşgeldin, Melih Çelik </h5>
+	<h5>Hoşgeldin, <strong><?php echo $member->full_name; ?></strong> </h5>
 </div>
 
 
