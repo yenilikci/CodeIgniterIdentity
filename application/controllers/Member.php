@@ -7,6 +7,7 @@ class Member extends CI_Controller{
 		parent::__construct();
 		$this->load->library("form_validation");
 		$this->load->model("MemberModel");
+		$this->load->helper("cookie");
 	}
 
 	public function index()
@@ -170,7 +171,23 @@ class Member extends CI_Controller{
 				);
 				$member = $this->MemberModel->get($where);
 				if ($member) {
+					//session user
 					$this->session->set_userdata("member", $member);
+
+					//beni hatırla
+					if ($this->input->post("remember_me") == "on") {
+						//cookie değer set et
+						$remember_me = array(
+							"email" => $this->input->post("email"),
+							"password" => $this->input->post("password")	
+						);
+						//set_cookie("key","value","time");
+						set_cookie("remember_me", json_encode($remember_me),time()+60*60*24*30);
+					}else{
+						//cookiede bulunan değeri sil
+						delete_cookie("remember_me");
+					}
+
 					redirect(base_url("homepage"));
 				} else {
 					//hata mesajı göster

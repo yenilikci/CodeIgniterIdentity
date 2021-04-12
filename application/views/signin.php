@@ -30,7 +30,15 @@ if(isset($error))
 }
 ?>
 
-
+<?php
+//beni hatırla için;
+	$this->load->helper("cookie");
+	$remember_me = get_cookie("remember_me");
+	if ($remember_me) {
+		$member = json_decode($remember_me);
+		print_r($member);
+	}
+?>
 
 
 <div class="container">
@@ -44,7 +52,7 @@ if(isset($error))
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input type="email" name="email">
+							<input type="email" name="email" value="<?php echo (isset($member)) ? $member->email : "" ;?>">
 							<label>E-posta Adresi</label>
 						</div>
 					</div>
@@ -52,7 +60,7 @@ if(isset($error))
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input type="password" name="password">
+							<input type="password" name="password"  value="<?php echo (isset($member)) ? $member->password : "" ;?>">
 							<label>Şifre</label>
 						</div>
 					</div>
@@ -60,7 +68,7 @@ if(isset($error))
 					<div class="row">
 						<div class="col">
 							<label>
-								<input id="indeterminate-checkbox" type="checkbox" />
+								<input id="indeterminate-checkbox" name="remember_me" type="checkbox" <?php echo (isset($member)) ? "checked" : ""; ?>/>
 								<span>Beni Hatırla</span>
 							</label>
 						</div>
